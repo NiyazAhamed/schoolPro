@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/schoolPro"/>
+<Context antiJARLocking="true" path="/schoolPro">
+
+ <Resource 
+    	auth="Container"
+    	factory="org.apache.commons.dbcp.BasicDataSourceFactory"
+    	driverClassName="com.mysql.jdbc.Driver" 
+    	maxActive="5" 
+    	maxIdle="1" 
+    	maxWait="-1" 
+    	name="jdbc/schoolpro"
+    	password="password!"
+    	type="javax.sql.DataSource" 
+    	url="jdbc:mysql://localhost:3306/training"    	
+    	username="training" />
+
+/>
