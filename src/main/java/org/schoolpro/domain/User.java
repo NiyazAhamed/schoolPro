@@ -10,17 +10,15 @@ import javax.persistence.*;
  *
  * @author training
  */
+@Entity
+@Table(name = "USER")
 public class User extends BaseEntity<Long> {
 
-    @Column(name="USER_ID",nullable=false)
     private String userId;
-    @Column(name="PASSWORD",nullable=false)
     private String password;
-    
-    @ManyToOne
-    @JoinColumn(name = "ROLE_ID", nullable = false)
     private Role role;
 
+    @Column(name = "PASSWORD", nullable = false)
     public String getPassword() {
         return password;
     }
@@ -29,6 +27,8 @@ public class User extends BaseEntity<Long> {
         this.password = password;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "ROLE_ID", nullable = false)
     public Role getRole() {
         return role;
     }
@@ -37,6 +37,7 @@ public class User extends BaseEntity<Long> {
         this.role = role;
     }
 
+    @Column(name = "USER_ID", nullable = false)
     public String getUserId() {
         return userId;
     }
@@ -45,8 +46,9 @@ public class User extends BaseEntity<Long> {
         this.userId = userId;
     }
 
+    @Id
     @Override
-    @Column(name = "ID",nullable=false)
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return this.id;

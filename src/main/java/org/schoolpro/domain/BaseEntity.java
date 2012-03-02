@@ -13,7 +13,7 @@ import javax.persistence.*;
  * @author training
  */
 @MappedSuperclass
-public abstract class BaseEntity<ID extends Serializable> {
+public abstract class BaseEntity<ID extends Serializable>  implements Serializable{
 
     protected ID id;
     private String createUser;

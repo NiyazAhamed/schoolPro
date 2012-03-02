@@ -5,26 +5,25 @@
 package org.schoolpro.domain;
 
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 /**
  *
  * @author training
  */
+@Entity
+@Table(name = "USER_ROLE")
 public class Role extends BaseEntity<Long> {
 
     private String description;
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     @Override
     public Long getId() {
         return this.id;
     }
-    @OneToMany(mappedBy = "role")
     private List<User> users;
 
     public String getDescription() {
@@ -35,6 +34,7 @@ public class Role extends BaseEntity<Long> {
         this.description = description;
     }
 
+    @OneToMany(mappedBy = "role")
     public List<User> getUsers() {
         return users;
     }

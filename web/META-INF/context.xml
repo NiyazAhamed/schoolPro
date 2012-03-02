@@ -3,7 +3,7 @@
 
  <Resource 
     	auth="Container"
-    	factory="org.apache.commons.dbcp.BasicDataSourceFactory"
+    	factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
     	driverClassName="com.mysql.jdbc.Driver" 
     	maxActive="5" 
     	maxIdle="1" 
@@ -14,4 +14,4 @@
     	url="jdbc:mysql://localhost:3306/training"    	
     	username="training" />
 
-/>
+</Context>
