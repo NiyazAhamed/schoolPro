@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author niyazahamed
  */
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/login/")
 public class LoginController {
 
-    @RequestMapping(value = "/doLogin",method= RequestMethod.POST)
+    @RequestMapping(value = "doLogin",method= RequestMethod.POST)
     public @ResponseBody
     JsonResponse doLogin(
             @RequestParam("userName") String userName,

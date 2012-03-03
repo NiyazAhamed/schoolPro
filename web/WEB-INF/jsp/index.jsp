@@ -10,7 +10,7 @@
                 type : "POST",
                 url: '/schoolPro/login/doLogin',
                 dataType: 'json',
-                data: $(this).serialize(),
+                data: 'userName='+$("#user-name").val()+'&userPassword='+ $("#user-password").val(),
                 success: function(data){
                     $("#msg-div").html(data.message);
                 }});
