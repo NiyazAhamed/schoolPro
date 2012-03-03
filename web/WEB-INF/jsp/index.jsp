@@ -2,18 +2,45 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
+<script type="text/javascript"   src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#loginForm").submit(function(){
+            $.ajax({
+                type : "POST",
+                url: '/schoolPro/login/doLogin',
+                dataType: 'json',
+                data: $(this).serialize(),
+                success: function(data){
+                    $("#msg-div").html(data.message);
+                }});
+            return false;
+        });
+    });
+</script>  
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome to Spring Web MVC project</title>
+        <title>Welcome to School Pro</title>
     </head>
 
     <body>
-        <p>Hello! This is the default welcome page for a Spring Web MVC project.</p>
-        <p><i>To display a different welcome page for this project, modify</i>
-            <tt>index.jsp</tt> <i>, or create your own welcome page then change
-                the redirection in</i> <tt>redirect.jsp</tt> <i>to point to the new
-                welcome page and also update the welcome-file setting in</i>
-            <tt>web.xml</tt>.</p>
+        <div id='msg-div'></div>
+        <form name="loginForm" id="loginForm" action="/schoolPro/login/doLogin"> 
+            <div id='input-div'>   
+
+                <input  type="text" name="userName" value="User Name:" id='user-name'/>
+                <input  type="password" name="userPassWord" value="Password:" id='user-password'/>
+
+                <div id='form-submit'>
+
+                    <input type= "submit" name="submit-btn" id="login-btn"  value="Login"/>
+                    <input type= "reset" name="reset-btn" value="Reset"/>                
+
+                </div>   
+
+            </div>    
+        </form>     
     </body>
 </html>
